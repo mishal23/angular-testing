@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Friends</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+	
+<div ng-controller="AppCtrl" style="text-align: center; padding-top: 10px;">
+	
+	<label>Enter latitude:</label><input ng-model="reference_latitude" placeholder="Enter latitude" >
+	<p></p>
+	<label>Enter longitude:</label><input ng-model="reference_longitude" placeholder="Enter longitude">
+	<p></p>
+	<button class="btn btn-primary" ng-click="query()">Submit</button>
+	<br><br>
+	<table ng-show="show_table">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>ID</td>
+			</tr>
+		</thead>
+		<tr ng-repeat="friend in friends | orderBy:['user_id']">
+			<td>{{friend.name}}</td> 
+			<td>{{friend.user_id}}</td>
+		</tr>
+	</table>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+<script src="app.js"></script>
+</html>
